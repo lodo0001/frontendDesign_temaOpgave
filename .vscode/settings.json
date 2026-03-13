@@ -2,7 +2,6 @@
   "github.copilot.enable": {
     "*": false
   },
-  "git.branchProtection": ["main", "master"],
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
