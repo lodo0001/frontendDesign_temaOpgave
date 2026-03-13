@@ -40,7 +40,7 @@ import logo from "@assets/images/logo.svg";
       padding: 20px;
     }
 
-    ul {
+    .navbar ul {
       display: flex;
       gap: 2.5rem;
       list-style: none;
@@ -52,6 +52,7 @@ import logo from "@assets/images/logo.svg";
       color: var(--color-neutrals-50);
     }
 
+    /* Css til login knap */
     button {
       background-color: var(--color-neutrals-50);
       color: #0b0f19;
@@ -59,8 +60,6 @@ import logo from "@assets/images/logo.svg";
       border: none;
       border-radius: 20px;
       padding: 4.5px 25px;
-
-      display: inline-block;
       cursor: pointer;
     }
 
@@ -82,7 +81,18 @@ import logo from "@assets/images/logo.svg";
       background-color: var(--color-yellow-500);
     }
 
+    [popovertarget] {
+      anchor-name: --nav-btn;
+    }
+
     [popover] {
+      /* Anchor positioning */
+      position: absolute;
+      position-anchor: --nav-btn;
+      position-area: bottom span-right;
+      position-try: flip-inline;
+
+      /* Style til popover */
       width: 300px;
       border-radius: 10px;
       border: none;
@@ -90,6 +100,8 @@ import logo from "@assets/images/logo.svg";
 
       h2 {
         font-size: 30px;
+        text-align: center;
+        margin: 1rem;
       }
 
       /* popover animation */

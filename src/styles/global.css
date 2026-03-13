@@ -1,1 +1,27 @@
 /* Globale styles her */
+
+@view-transition {
+  navigation: auto;
+}
+
+/* body {
+  display: grid;
+  grid-template-columns:
+    auto
+    [full-start] 1fr [content-start] minmax(
+      0,
+      75rem
+    ) [content-end] 1fr [full-end];
+}
+
+header,
+footer,
+main,
+section {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: full;
+  > :not(&) {
+    grid-column: content;
+  }
+} */
