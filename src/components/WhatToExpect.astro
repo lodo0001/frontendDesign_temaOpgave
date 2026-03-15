@@ -1,0 +1,124 @@
+---
+import Checkmark from "@icons/checkmark.svg";
+---
+
+<section class="expect">
+  <div class="expect-inner">
+    <figure class="expect-img">
+      <img src="src/assets/images/whatToExpect.webp" alt="img" />
+    </figure>
+
+    <div class="expect-text">
+      <span class="work">WE'LL WORK WITH YOU</span>
+      <h2>What To Expect</h2>
+
+      <p>
+        Our collaboration is built on transparency, efficiency, and measurable
+        results. Together, we create strategies tailored to your unique needs
+        and goals.
+      </p>
+
+      <ul class="expect-list">
+        <li>
+          <Checkmark class="check" />
+          <span>
+            Collaborate to build actionable strategies that drive sustainable
+            growth and deliver tangible outcomes.
+          </span>
+        </li>
+
+        <li>
+          <Checkmark class="check" />
+          <span>
+            Identify opportunities to optimize processes and implement impactful
+            solutions with measurable results.
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  @layer components {
+    .expect {
+      grid-column: full-start / full-end;
+      display: grid;
+      grid-template-columns: subgrid;
+      padding: 80px 0;
+    }
+
+    .expect-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* css til img + den grønne firkant */
+    .expect-img img {
+      border-radius: 20px;
+    }
+
+    figure {
+      margin-inline: auto;
+      max-width: 600px;
+      margin: 1rem;
+      display: block;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -30px;
+        left: -30px;
+        background: var(--color-green-400);
+        border-radius: 20px;
+        width: 140px;
+        height: 120px;
+        z-index: -1;
+      }
+    }
+
+    /* css til text sektionen */
+    .work {
+      font-size: 12px;
+    }
+
+    /* Herunder bruges supports not, det bruges til at se om browseren undersøttet text-box, 
+    hvis ikke, så bruger der vores supports not, altså margin-top */
+    .expect-text h2 {
+      text-box: trim-both cap alphabetic;
+
+      @supports not (text-box-trim: trim-both) {
+        margin-top: calc(0.5cap - 0.5lh);
+      }
+      font-size: 35px;
+      font-weight: bold;
+      margin: 10px 0 20px;
+    }
+
+    .expect-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .expect-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    /* vores checkmarks */
+    .check {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--color-green-600);
+      margin-top: 4px;
+    }
+  }
+</style>

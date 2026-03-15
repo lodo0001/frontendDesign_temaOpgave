@@ -4,15 +4,16 @@ import servicesData from "@data/services.json";
 import DynamicImage from "@helpers/DynamicImage.astro";
 ---
 
-<div class="services">
+<div class="services-grid">
   {servicesData.services.map((service) => <ServiceCard service={service} />)}
 </div>
 
 <style>
   @layer components {
-    .services {
-      display: flex;
-      flex-direction: row;
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
   }
 </style>
