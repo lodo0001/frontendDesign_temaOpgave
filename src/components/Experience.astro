@@ -1,0 +1,97 @@
+---
+import experience from "@data/experience.json";
+---
+
+<section class="experience">
+  <article class="experience-text">
+    <span>{experience.eyebrow}</span>
+    <h3>{experience.title}</h3>
+    <p>{experience.subtitle}</p>
+  </article>
+  <article class="stats">
+    {
+      experience.stats.map((stat) => (
+        <div class="stat">
+          <div style={`--value:${stat.value}`} />
+          <p>{stat.label}</p>
+        </div>
+      ))
+    }
+  </article>
+</section>
+
+<style>
+  .experience {
+    grid-column: full-start / full-end;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+    padding: 80px 0;
+    background-color: var(--color-yellow-500);
+  }
+
+  .experience-text {
+    grid-column: content-start;
+
+    h3 {
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+  }
+
+  .stat > div{
+    width 160px
+    aspect-ratio: 1;
+  
+    --animatedNumber: var(--value);
+    --percentage: calc(var(--animatedNumber) * 1%);
+    --bd: 6px;
+
+    position: relative;
+    border: var(--bd) solid #0000;
+
+    background:
+      radial-gradient(
+          circle at 50% calc(var(--bd) / 2),
+          red calc(var(--bd) / 2),
+          #0000 0
+        )
+        border-box,
+      linear-gradient(#fff) padding-box,
+      conic-gradient(red var(--percentage), blue 0) border-box;
+
+    border-radius: 999px;
+
+    display: grid;
+  container: stat / inline-size;
+
+  transition: --animatedNumber 2s;
+  }
+  .stat > div::after {
+  counter-reset: val round(var(--animatedNumber));
+  grid-area: 1 / 1;
+  content: counter(val) "%";
+  place-self: center;
+  font-size: 30cqw;
+  font-weight: 800;
+}
+
+.stat > div::before {
+  content: "";
+  position: absolute;
+  width: calc(var(--bd) * 2);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: red;
+
+  offset: border-box var(--percentage);
+  offset-anchor: 50% calc(50% - var(--bd) / 2);
+}
+</style>

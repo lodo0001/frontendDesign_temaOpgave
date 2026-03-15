@@ -4,14 +4,13 @@
   navigation: auto;
 }
 
-/* body {
+body {
   display: grid;
   grid-template-columns:
-    auto
-    [full-start] 1fr [content-start] minmax(
-      0,
-      75rem
-    ) [content-end] 1fr [full-end];
+    [full-start] minmax(20px, 1fr)
+    [content-start] min(1100px, 100%)
+    [content-end] minmax(20px, 1fr)
+    [full-end];
 }
 
 header,
@@ -21,7 +20,8 @@ section {
   display: grid;
   grid-template-columns: subgrid;
   grid-column: full;
+
   > :not(&) {
     grid-column: content;
   }
-} */
+}

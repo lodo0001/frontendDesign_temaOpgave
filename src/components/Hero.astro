@@ -5,40 +5,39 @@ import CEOImage from "@assets/images/ceo.webp";
 ---
 
 <section class="hero">
-  <div class="hero-content">
-    <div>
-      <h1>Empowering Your Business Growth</h1>
-      <p>
-        Discover tailored strategies and expert insights to take your business
-        to the next level. Let us help you navigate challenges and achieve
-        sustainable success.
-      </p>
-      <a href="#0">Book a Meeting</a>
-      <a href="#0">Learn More</a>
-    </div>
-    <div class="image-wrapper">
-      <Image src={CEOImage} alt="CEO" />
+  <div class="hero-text content">
+    <h1>Empowering Your Business Growth</h1>
+    <p>
+      Discover tailored strategies and expert insights to take your business to
+      the next level. Let us help you navigate challenges and achieve
+      sustainable success.
+    </p>
+
+    <div class="hero-btn">
+      <a class="book_btn" href="#0">Book a Meeting</a>
+      <a class="learn_btn" href="#0">Learn More →</a>
     </div>
   </div>
-  <article>
-    <Services />
-  </article>
+
+  <div class="hero-img">
+    <Image src={CEOImage} alt="CEO" />
+  </div>
 </section>
 
 <style>
   /* Styles her */
   @layer components {
     .hero {
-      background-color: #f3f4f6;
-      padding: 5rem;
-      overflow: hidden;
+      position: relative;
+      padding: 0 0 135px;
+
       display: grid;
-      grid-template-columns:
-        [full-start] 1fr [content-start] minmax(0, 600px),
-        minmax(0, 600px) [content-end] 1fr [full-end];
-      grid-template-rows: auto 1fr 1fr;
+      grid-template-columns: subgrid;
+      align-items: center;
+
+      /* css til baggrunden */
       --grid-color: hsl(from #ffcc4a h s l / 0.18);
-      --grid-size: 60px;
+      --grid-size: 50px;
       background:
         radial-gradient(circle at 90% 50%, black, #0000, #000),
         conic-gradient(
@@ -51,19 +50,65 @@ import CEOImage from "@assets/images/ceo.webp";
       color: #fff;
     }
 
-    .hero-content {
-      grid-column: content-start;
+    /* css til tekst */
+    .hero-text {
+      grid-column: content-start / content-end;
       grid-row: 1;
-      justify-content: space-between;
+      max-width: 500px;
     }
 
-    .image-wrapper {
-      grid-column: content-end / full-end;
-      grid-row: 1;
+    .hero-text h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
     }
 
-    h1 {
-      font-size: 40px;
+    .hero-text p {
+      color: var(--color-neutrals-700);
+      max-width: 450px;
+      margin-bottom: 30px;
+    }
+
+    /* css til knapper */
+    .hero-btn {
+      display: flex;
+      gap: 16px;
+    }
+
+    .book_btn {
+      background: var(--color-yellow-500);
+      padding: 12px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 500;
+      color: #000;
+    }
+
+    .learn_btn {
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* css til img */
+
+    .hero-img {
+      grid-column: content-start / full-end;
+      grid-row: 1;
+      display: flex;
+      justify-content: flex-end;
+
+      overflow: hidden;
+      height: calc(100% + 150px);
+      margin-bottom: -120px;
+    }
+
+    .hero-img img {
+      width: 760px;
+      max-width: none;
+      height: auto;
+      display: block;
     }
   }
 </style>
