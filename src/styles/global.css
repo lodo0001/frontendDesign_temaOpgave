@@ -26,6 +26,8 @@ section {
   }
 }
 
+/* Global font */
+
 @font-face {
   font-family: "cabinBold";
   src: url("./assets/fonts/Cabin/static/Cabin-Bold.ttf") format("truetype");
