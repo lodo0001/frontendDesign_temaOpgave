@@ -25,3 +25,62 @@ section {
     grid-column: content;
   }
 }
+
+@font-face {
+  font-family: "cabinBold";
+  src: url("./assets/fonts/Cabin/static/Cabin-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "cabinSemiBold";
+  src: url("./assets/fonts/Cabin/static/Cabin-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lato";
+  src: url("./assets/fonts/Lato/Lato-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --font-cabin-bold: "cabinBold", sans-serif;
+  --font-cabin-semi-bold: "cabinSemiBold", sans-serif;
+  --font-lato: "lato", sans-serif;
+}
+
+p {
+  font-family: var(--font-lato);
+  color: var(--color-neutrals-700);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-cabin-bold);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--title);
+}
+
+h2 {
+  font-size: var(--h2);
+  font-weight: 800;
+}
+
+h3 {
+  font-size: var(--h3);
+  font-weight: 800;
+}
+
+/* font størrelse til span, de små tekster ovenpå overskrifterne */
+span {
+  font-size: 15px;
+  letter-spacing: 1.5px;
+}
