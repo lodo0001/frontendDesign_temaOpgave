@@ -51,8 +51,8 @@ import Checkmark from "@icons/checkmark.svg";
     .expect-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
       align-items: start;
+      gap: 2rem;
     }
 
     /* css til img + den grønne firkant */
@@ -93,9 +93,14 @@ import Checkmark from "@icons/checkmark.svg";
       @supports not (text-box-trim: trim-both) {
         margin-top: calc(0.5cap - 0.5lh);
       }
-      font-size: 35px;
-      font-weight: bold;
+      font-size: var(--h2);
+      font-family: var(--font-cabin-bold);
+      font-weight: 700;
       margin: 10px 0 20px;
+    }
+
+    .expect-text p {
+      font-family: var(--font-lato);
     }
 
     .expect-list {
@@ -110,6 +115,7 @@ import Checkmark from "@icons/checkmark.svg";
       display: flex;
       align-items: flex-start;
       gap: 12px;
+      font-family: var(--font-lato);
     }
 
     /* vores checkmarks */

@@ -31,10 +31,41 @@
   --color-text-weak: var(--color-neutrals-400);
   --color-surface-highlight: var(--color-yellow-600);
   --color-on-ui-primary-muted: var(--color-neutrals-400);
+
+  /* ==== Text sizes ==== */
+  --title: 60px;
+  --h1: 50px;
+  --h2: 45px;
+  --h3: 40px;
+  --h4: 35px;
+  --h5: 25px;
+  --p: 18px;
 }
 
-/* ==== Spacing ==== */
-
 /* ==== Typography ==== */
+@font-face {
+  font-family: "cabinBold";
+  src: url("./assets/fonts/Cabin/static/Cabin-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "cabinSemiBold";
+  src: url("./assets/fonts/Cabin/static/Cabin-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "lato";
+  src: url("./assets/fonts/Lato/Lato-Regular.ttf");
+}
+
+:root {
+  --font-cabin-bold: "cabinBold", sans-serif;
+  --font-cabin-semi-bold: "cabinSemiBold", sans-serif;
+  --font-lato: "lato", sans-serif;
+}
 
 /* ==== Border Radii ==== */
+
+/* ==== Spacing ==== */
