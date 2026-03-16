@@ -42,30 +42,6 @@
   --p: 18px;
 }
 
-/* ==== Typography ==== */
-@font-face {
-  font-family: "cabinBold";
-  src: url("./assets/fonts/Cabin/static/Cabin-Bold.ttf");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "cabinSemiBold";
-  src: url("./assets/fonts/Cabin/static/Cabin-SemiBold.ttf");
-}
-
-@font-face {
-  font-family: "lato";
-  src: url("./assets/fonts/Lato/Lato-Regular.ttf");
-}
-
-:root {
-  --font-cabin-bold: "cabinBold", sans-serif;
-  --font-cabin-semi-bold: "cabinSemiBold", sans-serif;
-  --font-lato: "lato", sans-serif;
-}
-
 /* ==== Border Radii ==== */
 
 /* ==== Spacing ==== */

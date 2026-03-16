@@ -17,6 +17,11 @@ import ArrowRight from "@icons/arrow--right.svg";
       color: var(--color-on-surface-elevated);
       padding: 2rem; /* Dette burde være en token */
       border-radius: 20px; /* Dette burde være en token */
+
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      min-height: 220px;
     }
 
     h2 {
@@ -26,14 +31,15 @@ import ArrowRight from "@icons/arrow--right.svg";
 
     p {
       color: var(--color-neutrals-50);
-      padding-top: 1rlh;
     }
 
     a {
-      display: inline flex;
+      display: inline-flex;
       gap: 1ch;
       color: var(--color-action);
       font-weight: bold;
+
+      margin-top: auto;
 
       svg {
         inline-size: 16px;
