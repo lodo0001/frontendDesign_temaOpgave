@@ -1,0 +1,149 @@
+---
+import corevalues from "@data/coreValues.json";
+const { theme } = Astro.props;
+---
+
+<section class="core_section" data-theme={theme}>
+  <section class="core_text">
+    <p class="tag">Growing with our Clients</p>
+    <h2>Our core values & principles</h2>
+    <p class="description">
+      Capitalize on low hanging fruit to identify a ballpark value added
+      activity beta test. Override the digital divide with additional from
+      DevOps.
+    </p>
+    <button class="core_btn">Get in touch</button>
+  </section>
+  <section class="cards">
+    <div class="cards_container">
+      {
+        corevalues.values.map(({ icon, title, description, link }) => (
+          <div class="card" data-theme={theme}>
+            <div class="icon-wrapper">
+              <img src={`/src/icons/${icon}.svg`} alt="" />
+            </div>
+            <h3>{title}</h3>
+            <p>{description}</p>
+            <a href={link.url} class="card_link">
+              {link.text} →
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</section>
+
+<style>
+  @layer components {
+    .core_text {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto auto;
+      gap: 0.75rem 2rem;
+      margin-bottom: 2.5rem;
+      align-items: start;
+    }
+
+    h3 {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .tag {
+      font-size: 0.8125rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      grid-column: 1;
+      grid-row: 1;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      grid-column: 1;
+      grid-row: 2;
+      margin: 0;
+    }
+
+    .description {
+      font-size: 1rem;
+      line-height: 1.65;
+      grid-column: 1;
+      grid-row: 3;
+      max-width: 52ch;
+      margin: 0;
+    }
+
+    .core_section {
+      padding: 4rem 2rem;
+    }
+
+    .core_section[data-theme="dark"] {
+      background-color: var(--color-ui-primary);
+
+      .tag,
+      h2,
+      .description {
+        color: var(--color-neutrals-100);
+      }
+
+      .core_btn {
+        background-color: white;
+        color: black;
+      }
+    }
+
+    .core_section[data-theme="light"] {
+      background-color: var(--color-neutrals-50);
+      .tag,
+      h2,
+      .description {
+        color: var(--color-text);
+      }
+    }
+
+    .core_btn {
+      border-radius: 20px;
+      color: var(--color-neutrals-50);
+      background-color: var(--color-neutrals-900);
+      padding: 7px 20px;
+      border: none;
+      grid-column: 2;
+      grid-row: 2 / 4;
+      align-self: end;
+      justify-self: end;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+
+      .icon-wrapper {
+        background-color: var(--color-ui-primary);
+        border-radius: 50%;
+        padding: 0.75rem;
+        height: 52px;
+        width: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      img {
+        filter: invert(1);
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .cards_container {
+      display: flex;
+      gap: 2rem;
+    }
+  }
+</style>
