@@ -147,4 +147,45 @@ import Money from "@icons/money.svg";
     color: black;
     padding-bottom: 1rem;
   }
+
+  /* Responsiv */
+  @media (max-width: 1024px) {
+    .full > ul {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding-inline: 1rem;
+      overflow-x: visible;
+      justify-items: center;
+    }
+
+    ul li {
+      padding: 1.5rem 1rem;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .icons {
+      width: 24px;
+      height: 24px;
+      padding-bottom: 0.5rem;
+    }
+
+    header p {
+      max-inline-size: 100%;
+      text-align: center;
+      padding-inline: 9rem;
+    }
+
+    header h2 {
+      text-align: center;
+    }
+
+    header .tools {
+      display: block;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+    }
+  }
 </style>
