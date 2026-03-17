@@ -3,11 +3,11 @@ import { Image } from "astro:assets";
 import VisionImg from "@assets/images/vision.png";
 ---
 
-<section>
+<section class="wrapper">
   <div class="vision_desc">
     <div class="text">
       <span>OUR VISION</span>
-      <h2>Turn your ideas into reality.</h2>
+      <h3>Turn your ideas into reality.</h3>
       <p>
         Capitalize on low hanging fruit to identify a ballpark value added
         activity beta test. Override the digital divide with additional from
@@ -24,27 +24,27 @@ import VisionImg from "@assets/images/vision.png";
         </li>
       </ul>
     </div>
-    <div class="vision_img">
+    <figure class="vision_img">
       <Image src={VisionImg} alt="vison image" />
-    </div>
+    </figure>
   </div>
   <div class="numbers">
     <dl>
       <div>
         <dt>1128+</dt>
-        <dd>Successful Work</dd>
+        <p>Successful Work</p>
       </div>
       <div>
         <dt>908+</dt>
-        <dd>Team member</dd>
+        <p>Team member</p>
       </div>
       <div>
         <dt>258+</dt>
-        <dd>Happy Customers</dd>
+        <p>Happy Customers</p>
       </div>
       <div>
         <dt>564+</dt>
-        <dd>Creative Idea</dd>
+        <p>Creative Idea</p>
       </div>
     </dl>
   </div>
@@ -57,40 +57,52 @@ import VisionImg from "@assets/images/vision.png";
 
   @layer components {
     .wrapper {
-      display: grid;
-      grid-template-columns: subgrid;
+      padding: 80px 0;
+    }
+    .numbers {
+      dl {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        gap: 4rem;
+        margin-top: 50px;
+      }
+
+      dt {
+        font-size: var(--h3);
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
     }
 
-    .numbers dl {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      gap: 4rem;
+    .text h3 {
+      margin: 10px 0 15px;
     }
 
     ul {
       padding: 0;
-    }
 
-    li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
+      li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-family: var(--font-lato);
+        color: var(--color-neutrals-700);
+        margin-bottom: 16px;
 
-    li::before {
-      content: "";
-      width: 20px;
-      height: 20px;
-      background: var(--checkmark-icon) center / contain no-repeat;
-      flex-shrink: 0;
+        &::before {
+          content: "";
+          width: 20px;
+          height: 20px;
+          background: var(--checkmark-icon) center / contain no-repeat;
+          flex-shrink: 0;
+        }
+      }
     }
 
     .vision_desc {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      /* padding: 50px; */
-      gap: 50px;
 
       .text {
         grid-column: 1;
@@ -101,9 +113,28 @@ import VisionImg from "@assets/images/vision.png";
       }
     }
 
-    /* .vision_img {
-      object-fit: contain;
-      width: 40%;
-    } */
+    .vision_img img {
+      border-radius: 20px;
+    }
+
+    figure {
+      margin-inline: auto;
+      max-width: 600px;
+      margin: 1rem;
+      display: block;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 370px;
+        background: var(--color-green-400);
+        border-radius: 20px;
+        width: 140px;
+        height: 120px;
+        z-index: -1;
+      }
+    }
   }
 </style>
