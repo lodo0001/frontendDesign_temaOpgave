@@ -4,72 +4,71 @@ const { theme } = Astro.props;
 ---
 
 <section class="core_section" data-theme={theme}>
-  <section class="core_text">
-    <p class="tag">Growing with our Clients</p>
-    <h2>Our core values & principles</h2>
-    <p class="description">
-      Capitalize on low hanging fruit to identify a ballpark value added
-      activity beta test. Override the digital divide with additional from
-      DevOps.
-    </p>
-    <button class="core_btn">Get in touch</button>
-  </section>
-  <section class="cards">
-    <div class="cards_container">
-      {
-        corevalues.values.map(({ icon, title, description, link }) => (
-          <div class="card" data-theme={theme}>
-            <div class="icon-wrapper">
-              <img src={`/src/icons/${icon}.svg`} alt="" />
+  <div class="core_inner">
+    <section class="core_text">
+      <span class="tag">GROWING WITH OUR CLIENTS</span>
+      <h2>Our core values & principles</h2>
+      <p class="description">
+        Capitalize on low hanging fruit to identify a ballpark value added
+        activity beta test. Override the digital divide with additional from
+        DevOps.
+      </p>
+      <button class="core_btn">Get in touch</button>
+    </section>
+    <section class="cards">
+      <div class="cards_container">
+        {
+          corevalues.values.map(({ icon, title, description, link }) => (
+            <div class="card" data-theme={theme}>
+              <div class="icon-wrapper">
+                <img src={`/src/icons/${icon}.svg`} alt="" />
+              </div>
+              <h3>{title}</h3>
+              <p>{description}</p>
+              <a href={link.url} class="card_link">
+                {link.text} →
+              </a>
             </div>
-            <h3>{title}</h3>
-            <p>{description}</p>
-            <a href={link.url} class="card_link">
-              {link.text} →
-            </a>
-          </div>
-        ))
-      }
-    </div>
-  </section>
+          ))
+        }
+      </div>
+    </section>
+  </div>
 </section>
 
 <style>
   @layer components {
-    .core_text {
+    .core_section {
+      grid-column: full-start / full-end;
       display: grid;
-      grid-template-columns: 1fr auto;
-      grid-template-rows: auto auto auto;
-      gap: 0.75rem 2rem;
-      margin-bottom: 2.5rem;
+      grid-template-columns: subgrid;
+      padding: 1rem 2rem;
+    }
+
+    .core_inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       align-items: start;
+    }
+
+    .core_text {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
 
     h3 {
       margin-top: 20px;
       font-size: 20px;
-      font-weight: 500;
-    }
-
-    .tag {
-      font-size: 0.8125rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      grid-column: 1;
-      grid-row: 1;
-      margin: 0;
     }
 
     h2 {
-      font-size: clamp(2rem, 4vw, 2.75rem);
-      font-weight: 800;
       grid-column: 1;
       grid-row: 2;
       margin: 0;
     }
 
     .description {
-      font-size: 1rem;
       line-height: 1.65;
       grid-column: 1;
       grid-row: 3;
@@ -82,7 +81,18 @@ const { theme } = Astro.props;
     }
 
     .core_section[data-theme="dark"] {
-      background-color: var(--color-ui-primary);
+      /* css til baggrunden */
+      --grid-color: hsl(from #ffcc4a h s l / 0.18);
+      --grid-size: 50px;
+      background:
+        radial-gradient(circle at 90% 50%, black, #0000, #000),
+        conic-gradient(
+            from 180deg at 1px 1px,
+            var(--grid-color) 75%,
+            #0000 0
+          ) -1px -1px /
+          var(--grid-size) var(--grid-size),
+        #000;
 
       .tag,
       h2,
@@ -98,7 +108,7 @@ const { theme } = Astro.props;
 
     .core_section[data-theme="light"] {
       background-color: var(--color-neutrals-50);
-      .tag,
+
       h2,
       .description {
         color: var(--color-text);
@@ -106,21 +116,23 @@ const { theme } = Astro.props;
     }
 
     .core_btn {
-      border-radius: 20px;
+      border-radius: 999px;
+      margin-bottom: 2rem;
       color: var(--color-neutrals-50);
       background-color: var(--color-neutrals-900);
-      padding: 7px 20px;
+      padding: 0.75rem 1.5rem;
       border: none;
-      grid-column: 2;
-      grid-row: 2 / 4;
       align-self: end;
-      justify-self: end;
     }
 
     .card {
-      background-color: white;
-      border-radius: 20px;
-      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 24px;
+      padding: 2rem;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
 
       .icon-wrapper {
         background-color: var(--color-ui-primary);
@@ -142,7 +154,8 @@ const { theme } = Astro.props;
     }
 
     .cards_container {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
     }
   }
