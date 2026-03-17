@@ -157,5 +157,48 @@ const { theme } = Astro.props;
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
     }
+
+    @media (max-width: 1024px) {
+      .core_section {
+        grid-template-columns: 1fr;
+        padding-inline: 9rem;
+      }
+
+      .core_inner {
+        justify-items: center;
+        text-align: center;
+      }
+
+      .description {
+        text-align: center;
+        margin-inline: auto;
+      }
+
+      .cards_container {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
+      .card {
+        max-width: 400px;
+        width: 100%;
+      }
+
+      .icon-wrapper {
+        height: 48px;
+        width: 48px;
+      }
+
+      .icon-wrapper img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .core_btn {
+        align-self: center;
+        margin: 1.5rem;
+      }
+    }
   }
 </style>

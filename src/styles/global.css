@@ -1,5 +1,4 @@
 /* Globale styles her */
-
 @view-transition {
   navigation: auto;
 }
@@ -24,7 +23,6 @@ section {
 }
 
 /* Global font */
-
 @font-face {
   font-family: "cabinBold";
   src: url("./assets/fonts/Cabin/static/Cabin-Bold.ttf") format("truetype");
@@ -83,4 +81,29 @@ h3 {
 span {
   font-size: 15px;
   letter-spacing: 1.5px;
+}
+}
+
+/* global til responsiv */
+@media (max-width: 1024px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+
+  header,
+  main,
+  section,
+  article {
+    grid-template-columns: 1fr;
+    grid-column: full-start / full-end;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .content {
+    padding-inline: 1rem;
+  }
 }

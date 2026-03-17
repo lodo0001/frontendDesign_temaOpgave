@@ -1,0 +1,65 @@
+<section class="CaseStudies">
+  <span>CASE STUDIES</span>
+  <h2>
+    <span class="highlight">Taxes & Efficiency</span>
+  </h2>
+  <p class="caseStudies_text">
+    Our achievements reflect the close collaboration between our expert teams
+    and our esteemed clientele. We cultivate a workplace that champions peak
+    performance and guarantees client satisfaction.
+  </p>
+</section>
+
+<style>
+  @layer components {
+    /* css til den gule streg under empowering */
+    .highlight {
+      position: relative;
+      display: inline-block;
+      font-size: var(--h1);
+    }
+
+    .highlight::after {
+      content: "";
+      position: absolute;
+      left: -530px;
+      bottom: 5px;
+      width: calc(100% + 500px);
+      height: 5px;
+      background: var(--color-yellow-500);
+    }
+
+    .CaseStudies {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      background-color: var(--color-neutrals-50);
+      padding: 65px;
+    }
+
+    .caseStudies_text {
+      width: 40%;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    @media (max-width: 1024px) {
+      .caseStudies_text {
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      .highlight::after {
+        content: "";
+        position: absolute;
+        left: -530px;
+        bottom: 5px;
+        width: calc(100% + 430px);
+        height: 5px;
+        background: var(--color-yellow-500);
+      }
+    }
+  }
+</style>

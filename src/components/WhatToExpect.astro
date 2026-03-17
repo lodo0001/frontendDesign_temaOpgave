@@ -126,5 +126,40 @@ import Checkmark from "@icons/checkmark.svg";
       color: var(--color-green-600);
       margin-top: 4px;
     }
+
+    /* til responsiv */
+    @media (max-width: 1024px) {
+      .expect-inner {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
+      .expect-img {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      figure::before {
+        top: -20px;
+        left: -20px;
+        width: 100px;
+        height: 90px;
+      }
+
+      .expect-text {
+        text-align: center;
+      }
+
+      .expect-text p {
+        font-size: 0.95rem;
+        text-align: center;
+        padding-inline: 9rem;
+      }
+
+      .check {
+        display: none;
+      }
+    }
   }
 </style>
