@@ -3,49 +3,51 @@ import { Image } from "astro:assets";
 import VisionImg from "@assets/images/vision.png";
 ---
 
-<section class="vision_desc">
-  <div>
-    <h4>OUR VISION</h4>
-    <h2>Turn your ideas into reality.</h2>
-    <p>
-      Capitalize on low hanging fruit to identify a ballpark value added
-      activity beta test. Override the digital divide with additional from
-      DevOps.
-    </p>
-    <ul>
-      <li>
-        Bring to the table win-win survival strategies to ensure proactive
-        domination. At the end of the day.
-      </li>
-      <li>
+<section>
+  <div class="vision_desc">
+    <div class="text">
+      <span>OUR VISION</span>
+      <h2>Turn your ideas into reality.</h2>
+      <p>
         Capitalize on low hanging fruit to identify a ballpark value added
-        activity to beta test override the digital.
-      </li>
-    </ul>
+        activity beta test. Override the digital divide with additional from
+        DevOps.
+      </p>
+      <ul>
+        <li>
+          Bring to the table win-win survival strategies to ensure proactive
+          domination. At the end of the day.
+        </li>
+        <li>
+          Capitalize on low hanging fruit to identify a ballpark value added
+          activity to beta test override the digital.
+        </li>
+      </ul>
+    </div>
+    <div class="vision_img">
+      <Image src={VisionImg} alt="vison image" />
+    </div>
   </div>
-  <div class="vision_img">
-    <Image src={VisionImg} alt="vison image" />
+  <div class="numbers">
+    <dl>
+      <div>
+        <dt>1128+</dt>
+        <dd>Successful Work</dd>
+      </div>
+      <div>
+        <dt>908+</dt>
+        <dd>Team member</dd>
+      </div>
+      <div>
+        <dt>258+</dt>
+        <dd>Happy Customers</dd>
+      </div>
+      <div>
+        <dt>564+</dt>
+        <dd>Creative Idea</dd>
+      </div>
+    </dl>
   </div>
-</section>
-<section class="numbers">
-  <dl>
-    <div>
-      <dt>1128+</dt>
-      <dd>Successful Work</dd>
-    </div>
-    <div>
-      <dt>908+</dt>
-      <dd>Team member</dd>
-    </div>
-    <div>
-      <dt>258+</dt>
-      <dd>Happy Customers</dd>
-    </div>
-    <div>
-      <dt>564+</dt>
-      <dd>Creative Idea</dd>
-    </div>
-  </dl>
 </section>
 
 <style>
@@ -54,6 +56,11 @@ import VisionImg from "@assets/images/vision.png";
   }
 
   @layer components {
+    .wrapper {
+      display: grid;
+      grid-template-columns: subgrid;
+    }
+
     .numbers dl {
       display: flex;
       justify-content: center;
@@ -82,13 +89,21 @@ import VisionImg from "@assets/images/vision.png";
     .vision_desc {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      padding: 50px;
+      /* padding: 50px; */
       gap: 50px;
+
+      .text {
+        grid-column: 1;
+      }
+
+      .vision_img {
+        grid-column: 2;
+      }
     }
 
-    .vision_img {
+    /* .vision_img {
       object-fit: contain;
-      width: 50%;
-    }
+      width: 40%;
+    } */
   }
 </style>
