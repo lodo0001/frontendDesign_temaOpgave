@@ -6,10 +6,7 @@
 body {
   display: grid;
   grid-template-columns:
-    [full-start] minmax(20px, 1fr)
-    [content-start] min(1100px, 100%)
-    [content-end] minmax(20px, 1fr)
-    [full-end];
+    [full-start] minmax(20px, 1fr) [content-start] min(1100px, 100%) [content-end] minmax(20px, 1fr) [full-end];
 }
 
 header,
@@ -55,7 +52,7 @@ section {
 
 p {
   font-family: var(--font-lato);
-  color: var(--color-blue-700-transparent);
+  color: var(--color-neutrals-700);
 }
 
 h1,
@@ -84,6 +81,7 @@ h3 {
 span {
   font-size: 15px;
   letter-spacing: 1.5px;
+}
 }
 
 /* global til responsiv */
