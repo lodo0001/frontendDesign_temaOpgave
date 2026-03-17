@@ -31,10 +31,25 @@
   --color-text-weak: var(--color-neutrals-400);
   --color-surface-highlight: var(--color-yellow-600);
   --color-on-ui-primary-muted: var(--color-neutrals-400);
+
+
+  /* ==== Text sizes ==== */
+  --title: 60px;
+  --h1: 50px;
+  --h2: 45px;
+  --h3: 40px;
+  --h4: 35px;
+  --h5: 25px;
+  --p: 18px;
 }
 
-/* ==== Spacing ==== */
-
-/* ==== Typography ==== */
-
 /* ==== Border Radii ==== */
+
+/* ==== Spacing ==== */
+:root {
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 80px;
+}

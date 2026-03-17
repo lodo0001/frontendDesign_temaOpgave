@@ -1,0 +1,94 @@
+---
+import { Image } from "astro:assets";
+import VisionImg from "@assets/images/vision.png";
+---
+
+<section class="vision_desc">
+  <div>
+    <h4>OUR VISION</h4>
+    <h2>Turn your ideas into reality.</h2>
+    <p>
+      Capitalize on low hanging fruit to identify a ballpark value added
+      activity beta test. Override the digital divide with additional from
+      DevOps.
+    </p>
+    <ul>
+      <li>
+        Bring to the table win-win survival strategies to ensure proactive
+        domination. At the end of the day.
+      </li>
+      <li>
+        Capitalize on low hanging fruit to identify a ballpark value added
+        activity to beta test override the digital.
+      </li>
+    </ul>
+  </div>
+  <div class="vision_img">
+    <Image src={VisionImg} alt="vison image" />
+  </div>
+</section>
+<section class="numbers">
+  <dl>
+    <div>
+      <dt>1128+</dt>
+      <dd>Successful Work</dd>
+    </div>
+    <div>
+      <dt>908+</dt>
+      <dd>Team member</dd>
+    </div>
+    <div>
+      <dt>258+</dt>
+      <dd>Happy Customers</dd>
+    </div>
+    <div>
+      <dt>564+</dt>
+      <dd>Creative Idea</dd>
+    </div>
+  </dl>
+</section>
+
+<style>
+  :root {
+    --checkmark-icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="%234EAF4E" d="M176.49 95.51a12 12 0 0 1 0 17l-56 56a12 12 0 0 1-17 0l-24-24a12 12 0 1 1 17-17L112 143l47.51-47.52a12 12 0 0 1 16.98.03M236 128A108 108 0 1 1 128 20a108.12 108.12 0 0 1 108 108m-24 0a84 84 0 1 0-84 84a84.09 84.09 0 0 0 84-84"/></svg>');
+  }
+
+  @layer components {
+    .numbers dl {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      gap: 4rem;
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    li::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background: var(--checkmark-icon) center / contain no-repeat;
+      flex-shrink: 0;
+    }
+
+    .vision_desc {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 50px;
+      gap: 50px;
+    }
+
+    .vision_img {
+      object-fit: contain;
+      width: 50%;
+    }
+  }
+</style>
