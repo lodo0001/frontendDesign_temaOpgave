@@ -163,5 +163,33 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
         margin-inline: auto;
       }
     }
+    @media (max-width: 1024px) {
+      header {
+        margin-bottom: 70px;
+        padding-inline: 2rem;
+      }
+
+      .case-details {
+        position: static;
+        transform: none;
+        display: flex;
+
+        width: 100%;
+        grid-template-columns: 2fr; /* stack indhold */
+        gap: 1.5rem;
+      }
+
+      .button {
+        margin-inline: auto;
+      }
+
+      .caseStudy_text {
+        padding-inline: 3rem;
+      }
+
+      .case-details dl {
+        grid-template-columns: 1fr;
+      }
+    }
   }
 </style>
