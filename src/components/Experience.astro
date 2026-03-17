@@ -139,5 +139,31 @@ import experience from "@data/experience.json";
       offset: border-box var(--percentage);
       offset-anchor: 50% calc(50% - var(--bd) / 2);
     }
+
+    @media (max-width: 1024px) {
+      .experience-inner {
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+        justify-items: center;
+        padding-inline: 12.5rem;
+        text-align: center; /* centrer teksten */
+      }
+
+      .stats {
+        flex-direction: row;
+      }
+
+      .circle {
+        width: 120px;
+      }
+
+      .circle::after {
+        font-size: 28px;
+      }
+      .core_btn {
+        align-self: center; /* centrer knappen på mobil */
+        margin: 9rem;
+      }
+    }
   }
 </style>

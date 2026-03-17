@@ -131,5 +131,39 @@ import CEOImage from "@assets/images/ceo.webp";
       height: auto;
       display: block;
     }
+
+    /* Responsiv */
+    @media (max-width: 1024px) {
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        justify-items: center;
+        align-items: center;
+        padding: 2rem 1rem 80px;
+        min-height: 60vh;
+      }
+
+      .hero-img {
+        display: none;
+      }
+
+      .hero-text {
+        grid-column: 1 / -1;
+        text-align: center;
+      }
+
+      .hero-btn {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .highlight::after {
+        left: 0;
+        width: 100%;
+      }
+    }
   }
 </style>
