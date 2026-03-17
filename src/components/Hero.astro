@@ -5,27 +5,131 @@ import CEOImage from "@assets/images/ceo.webp";
 ---
 
 <section class="hero">
-  <div class="hero-content">
-    <h1>Empowering Your Business Growth</h1>
+  <div class="hero-text content">
+    <h1>
+      <span class="highlight">Empowering</span> Your Business Growth
+    </h1>
     <p>
       Discover tailored strategies and expert insights to take your business to
       the next level. Let us help you navigate challenges and achieve
       sustainable success.
     </p>
-    <a href="#0">Book a Meeting</a>
-    <a href="#0">Learn More</a>
-  </div>
-  <Image src={CEOImage} alt="CEO" />
 
-  <Services />
+    <div class="hero-btn">
+      <a class="book_btn" href="#0">Book a Meeting</a>
+      <a class="learn_btn" href="#0">Learn More →</a>
+    </div>
+  </div>
+
+  <div class="hero-img">
+    <Image src={CEOImage} alt="CEO" />
+  </div>
 </section>
 
 <style>
   /* Styles her */
   @layer components {
     .hero {
-      background-color: #f3f4f6;
-      padding: 2rem;
+      position: relative;
+      padding: 0 0 115px;
+
+      display: grid;
+      grid-template-columns: subgrid;
+      align-items: center;
+
+      /* css til baggrunden */
+      --grid-color: hsl(from #ffcc4a h s l / 0.18);
+      --grid-size: 50px;
+      background:
+        radial-gradient(circle at 90% 50%, black, #0000, #000),
+        conic-gradient(
+            from 180deg at 1px 1px,
+            var(--grid-color) 75%,
+            #0000 0
+          ) -1px -1px /
+          var(--grid-size) var(--grid-size),
+        #000;
+      color: #fff;
+    }
+
+    /* css til den gule streg under empowering */
+    .highlight {
+      position: relative;
+      display: inline-block;
+      font-size: var(--h1);
+    }
+
+    .highlight::after {
+      content: "";
+      position: absolute;
+      left: -120px;
+      bottom: 2px;
+      width: calc(100% + 90px);
+      height: 6px;
+      background: linear-gradient(160deg, #000, var(--color-yellow-500));
+    }
+
+    /* css til tekst */
+    .hero-text {
+      grid-column: content-start / content-end;
+      grid-row: 1;
+      max-width: 500px;
+    }
+
+    .hero-text h1 {
+      margin-bottom: 20px;
+      font-size: var(--h1);
+    }
+
+    .hero-text p {
+      color: var(--color-neutrals-700);
+      max-width: 450px;
+      margin-bottom: 30px;
+    }
+
+    /* css til knapper */
+    .hero-btn {
+      display: flex;
+      gap: 16px;
+    }
+
+    .book_btn {
+      background: var(--color-yellow-500);
+      padding: 12px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 500;
+      color: #000;
+      cursor: pointer;
+    }
+
+    .learn_btn {
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid #fff;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    /* css til img */
+
+    .hero-img {
+      grid-column: content-start / full-end;
+      grid-row: 1;
+      display: flex;
+      justify-content: flex-end;
+
+      overflow: hidden;
+      height: calc(100% + 120px);
+      margin-bottom: -120px;
+    }
+
+    .hero-img img {
+      width: 760px;
+      max-width: none;
+      height: auto;
+      display: block;
     }
   }
 </style>
