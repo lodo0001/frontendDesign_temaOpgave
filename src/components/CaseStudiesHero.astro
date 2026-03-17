@@ -44,5 +44,22 @@
       margin: 0 auto;
       text-align: center;
     }
+
+    @media (max-width: 1024px) {
+      .caseStudies_text {
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      .highlight::after {
+        content: "";
+        position: absolute;
+        left: -530px;
+        bottom: 5px;
+        width: calc(100% + 430px);
+        height: 5px;
+        background: var(--color-yellow-500);
+      }
+    }
   }
 </style>
