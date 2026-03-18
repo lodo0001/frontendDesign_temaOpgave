@@ -3,18 +3,26 @@ import Cal from "@icons/cal.svg";
 import Card from "@icons/card.svg";
 import Law from "@icons/law.svg";
 import Money from "@icons/money.svg";
+import ArrowRight from "@icons/arrow--right.svg";
+import ArrowLeft from "@icons/arrow-left.svg";
 ---
 
 <main>
   <section class="full">
     <header>
-      <span class="tools">FINANCIAL TOOLS</span>
-      <h2>Financial Projections</h2>
-      <p>
-        Financial projections are essential for planning and monitoring a
-        company’s performance. They provide insights into potential revenue,
-        expenses, and profitability over specific periods.
-      </p>
+      <div class="financial_text">
+        <span class="tools">FINANCIAL TOOLS</span>
+        <h2>Financial Projections</h2>
+        <p>
+          Financial projections are essential for planning and monitoring a
+          company’s performance. They provide insights into potential revenue,
+          expenses, and profitability over specific periods.
+        </p>
+      </div>
+      <div class="arrows_buttons">
+        <button class="arrowLeft"><ArrowLeft /></button>
+        <button class="arrowRight"><ArrowRight /></button>
+      </div>
     </header>
 
     <ul role="list">
@@ -135,6 +143,10 @@ import Money from "@icons/money.svg";
 
   header {
     color: #595566;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
 
     p {
       max-inline-size: 67ch;
@@ -142,10 +154,44 @@ import Money from "@icons/money.svg";
     }
   }
 
+  .header_text {
+    max-width: 600px;
+  }
+
   /* Css til icons */
   .icons {
     color: black;
     padding-bottom: 1rem;
+  }
+
+  .arrows_buttons {
+    display: flex;
+    gap: 20px;
+    align-self: end;
+  }
+
+  .arrowRight,
+  .arrowLeft {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    color: var(--color-neutrals-50);
+    background-color: var(--color-neutrals-900);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .arrowRight:hover,
+  .arrowLeft:hover {
+    background: oklch(from var(--color-neutrals-900) calc(l + 0.1) c h);
+  }
+
+  .arrowRight:active,
+  .arrowLeft:active {
+    background: oklch(from var(--color-neutrals-900) calc(l + 0.2) c h);
   }
 
   /* Responsiv */
@@ -186,6 +232,10 @@ import Money from "@icons/money.svg";
       text-align: center;
       margin-bottom: 0.5rem;
       font-size: 0.85rem;
+    }
+
+    .arrows_buttons {
+      display: none;
     }
   }
 </style>

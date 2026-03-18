@@ -104,6 +104,18 @@ const { theme } = Astro.props;
         background-color: white;
         color: black;
       }
+
+      .core_btn:hover {
+        background-color: oklch(
+          from var(--color-neutrals-50) calc(l - 0.05) c h
+        );
+      }
+
+      .core_btn:active {
+        background-color: oklch(
+          from var(--color-neutrals-50) calc(l - 0.1) c h
+        );
+      }
     }
 
     .core_section[data-theme="light"] {
@@ -122,6 +134,14 @@ const { theme } = Astro.props;
       padding: 0.75rem 1.5rem;
       border: none;
       align-self: end;
+    }
+
+    .core_btn:hover {
+      background: oklch(from var(--color-neutrals-900) calc(l + 0.1) c h);
+    }
+
+    .core_btn:active {
+      background: oklch(from var(--color-neutrals-900) calc(l + 0.2) c h);
     }
 
     .card {

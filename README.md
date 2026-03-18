@@ -1,68 +1,49 @@
-# Opgaveskabelon til "Figma til kode"
+# Kort refleksion af temaopgaven
 
-Se opgavebeskrivelsen på Fronter.
+Lavet af Emily Goldberg & Louise Do
 
-## Medfølgende Data
+## 1. Reflekter kort men fagligt over jeres løsning med henblik på udfordringerne og successerne ved opgaven.
 
-Der medfølger indholdsdata i form af lokale JSON-filer, som du kan bruge til din opgave. Det er ikke et krav til opgaven, men det kan gøre det nemmere og hurtigere at få tekst og billeder ind i dit projekt.
+Det lykkedes os at udvikle en hjemmeside, hvor de centrale benspænd blev opfyldt, men processen var mere udfordrende, end vi først havde forventet. Undervejs oplevede vi især problemer med GitHub, hvor der opstod vanskeligheder i forbindelse med at hente hinandens commits og ved egne commits. Dette skabte en del frustration og krævede ekstra tid til fejlfinding. Derudover er det noget tid siden, vi sidst har arbejdet med Astro, hvilket gjorde det sværere at genopfriske arbejdsgangen og de grundlæggende principper.
 
-> [!NOTE]
-> Bemærk, at CaseStudy-siden allerede inkluderer data fra en lokal JSON-fil.
-> Bemærk også, at ikke alle billeder fra Figma-filen er i det lokale indholdsdata.
+På trods af udfordringerne har vi også opnået flere faglige fremskridt. Det var første gang hvor vi reelt arbejdede med en global.css samt brugen af custom properties, og det har givet os en bedre forståelse for, hvordan man kan skabe mere konsistent og vedligeholdelig styling. Derudover var det nyt for os at skulle tage højde for brugerpræferencer, såsom reduceret bevægelse i animationer, hvilket har øget vores bevidsthed om tilgængelighed og brugeroplevelse.
 
-Dokumentationen til anvendelsen af dataene finder du på: [https://frontend-design-theme.netlify.app/](https://frontend-design-theme.netlify.app/).
-
-Her er et eksempel på, hvordan du kan bruge dataene i dine Astro-komponenter:
-
-```astro
-import employees from "@data/employees.json";
-
-console.log(employees);
-```
-
-## Brug af hjælpekomponenter
-
-### DynamicImage.astro (`@helpers/DynamicImage.astro`)
-
-Brug denne komponent til at vise billeder dynamisk fra lokale datafiler. Du skal blot sende stien fra datasættet direkte til komponenten.
-
-Eksempel med data:
-
-```astro
-{employees.map((employee) => (
-  <DynamicImage
-    imagePath={employee.img}
-    altText={employee.name}
-    width={200}
-    height={200}
-  />
-))}
-```
-
-### DynamicIcon.astro (`@helpers/DynamicIcon.astro`)
-
-`DynamicIcon` bruges til at vise SVG-ikoner dynamisk baseret på et navn fra dine data.
-
-Eksempel med data:
-
-```astro
-{employee.social_links.map((link) => (
-  <DynamicIcon name={link.icon} />
-))}
-```
-
-Her vises et ikon for hvert socialt medie, hvor `icon`-feltet matcher filnavnet på SVG-ikonet i `src/icons/`.
+De succeser, vi har haft, har blandt andet været i struktureringen af koden, hvor vi har arbejdet mere systematisk og forsøgt at opdele vores komponenter på en overskuelig måde. Samlet set har projektet givet os en bedre forståelse for både samarbejdsværktøjer og moderne frontend-udvikling, og hvis vi skulle arbejde videre med løsningen, ville vi fokusere på at styrke vores Git-workflow samt opnå en endnu mere sikker forståelse af Astro.
 
 ---
 
-## Import af SVG-ikoner direkte
+## Fremhæv specifikke kodestumper, der illustrerer brugen af forskellige teknikker og principper fra undervisningen, samt hvorfor de er brugbare.
 
-Du kan importere SVG-ikoner direkte i dine komponenter ved at importere dem:
+En af de teknikker, som vi har taget med os videre i dette projekt, er brugen af nesting. Som illustreret i eksemplet nedenfor placerer vi et img-element inde i en header, da billedet fungerer som et barn af headeren. Dette er brugbart da det bidrager til en mere struktureret opbygning af koden, hvor relaterede elementer naturligt grupperes sammen.
 
 ```astro
-import Checkmark from "@icons/checkmark.svg";
+header{
+  position: relative;
 
-<Checkmark width={32} height={32} class="my-icon" />
+  img{
+    width:100%;
+    border-radius: 20px;
+    display: block;
+  }
+}
 ```
 
-Se evt. `src/pages/svgs.astro` for flere eksempler på direkte import og brug af SVG-ikoner.
+---
+
+## Fremhæv steder, hvor Defensive CSS er tænkt ind.
+
+---
+
+## Reflekter over, hvor i løsningen, der er brugt progressive enhancement og gennemgå kort, hvordan det er løst.
+
+---
+
+## Forklar, hvordan du har organiseret din CSS; hvornår er det globalt, og hvornår er det komponent-specifikt.
+
+Vi har organiseret vores CSS med udgangspunkt i globale styles og design tokens for at sikre et ensartet design på hele vores webløsning. De globale styles indeholder generelle regler, der gælder på tværs af alle sider, såsom grid-layout og typografi.
+
+Design tokens har vi brugt til at definere farver og andre gennemgående værdier fra det udleverede design, så vi nemt kan genbruge dem i de forskellige komponenter. Her har vi også samlet generelle stylingregler som f.eks. gap.
+
+Derudover har vi arbejdet med komponent-specifik CSS i vores Astro-komponenter. Her har vi stylet direkte i den enkelte komponent i <style>-sektionen for at kunne tilpasse designet præcist til det enkelte komponent, som vist i det udleveret design.
+
+Samlet set gælder de globale styles for hele sitet, mens tokens og komponent-specifik CSS bruges mere målrettet afhængigt af komponentens behov og design.
