@@ -12,8 +12,9 @@ De succeser, vi har haft, har blandt andet været i struktureringen af koden, hv
 
 ---
 
-## Fremhæv specifikke kodestumper, der illustrerer brugen af forskellige teknikker og principper fra undervisningen, samt hvorfor de er brugbare.
+## 2. Fremhæv specifikke kodestumper, der illustrerer brugen af forskellige teknikker og principper fra undervisningen, samt hvorfor de er brugbare.
 
+Nesting:
 En af de teknikker, som vi har taget med os videre i dette projekt, er brugen af nesting. Som illustreret i eksemplet nedenfor placerer vi et img-element inde i en header, da billedet fungerer som et barn af headeren. Dette er brugbart da det bidrager til en mere struktureret opbygning af koden, hvor relaterede elementer naturligt grupperes sammen.
 
 ```astro
@@ -28,17 +29,52 @@ header{
 }
 ```
 
+Subgrid til makro-layout:
+En anden teknik, vi har benyttet, er subgrid til vores layout. I global har vi body, der definerer de overordnede spor (full-bleed + content), og derefter bruger header, main, footer og section subgrid. Det er gavnligt at bruge subgrid her, da vi arbejder med makro-layouts, hvor vi har full-bleed sektioner og indhold, der skal alignes med resten af indholdet.
+
+```astro
+body {
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(20px, 1fr)
+    [content-start] min(1100px, 100%)
+    [content-end] minmax(20px, 1fr)
+    [full-end];
+}
+
+header,
+footer,
+main,
+section {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: full;
+
+  > :not(&) {
+    grid-column: content;
+  }
+}
+```
+
 ---
 
-## Fremhæv steder, hvor Defensive CSS er tænkt ind.
+## 3. Fremhæv steder, hvor Defensive CSS er tænkt ind.
 
 ---
 
-## Reflekter over, hvor i løsningen, der er brugt progressive enhancement og gennemgå kort, hvordan det er løst.
+## 4. Reflekter over, hvor i løsningen, der er brugt progressive enhancement og gennemgå kort, hvordan det er løst.
+
+Et eksempel på brugen af progressive enhancement ligger i vores globale CSS, hvor vi bruger @view-transition til at tilføje en mere glidende overgang mellem vores sider. Funktionen virker kun i browsere, der understøtter det, mens navigationen i ældre browsere stadig fungerer normalt, så grundfunktionaliteten bevares. Løsningen sikrer først, at funktionaliteten virker bredt, og forbedrer derefter oplevelsen, hvor det er muligt – og det er essensen af progressive enhancement.
+
+```astro
+@view-transition {
+  navigation: auto;
+}
+```
 
 ---
 
-## Forklar, hvordan du har organiseret din CSS; hvornår er det globalt, og hvornår er det komponent-specifikt.
+## 5. Forklar, hvordan du har organiseret din CSS; hvornår er det globalt, og hvornår er det komponent-specifikt.
 
 Vi har organiseret vores CSS med udgangspunkt i globale styles og design tokens for at sikre et ensartet design på hele vores webløsning. De globale styles indeholder generelle regler, der gælder på tværs af alle sider, såsom grid-layout og typografi.
 
