@@ -131,6 +131,18 @@ const { caseName, category, date, image, buttonLabel } = caseStudy.caseDetails;
       white-space: normal;
     }
 
+    .button:hover {
+      background: oklch(from var(--color-yellow-500) calc(l + 0.05) c h);
+    }
+
+    .button:active {
+      background: oklch(from var(--color-yellow-500) calc(l + 0.1) c h);
+    }
+
+    ul {
+      color: var(--color-neutrals-700);
+    }
+
     /* Css til tekst-afsnittet */
     .caseStudy_text {
       grid-column: content-start / content-end;
