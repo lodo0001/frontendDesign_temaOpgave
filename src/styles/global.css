@@ -5,8 +5,10 @@
 
 body {
   display: grid;
-  grid-template-columns:
-    [full-start] minmax(20px, 1fr) [content-start] min(1100px, 100%) [content-end] minmax(20px, 1fr) [full-end];
+  grid-template-columns: [full-start] minmax(20px, 1fr) [content-start] min(
+      1100px,
+      100%
+    ) [content-end] minmax(20px, 1fr) [full-end];
 }
 
 header,
@@ -81,7 +83,6 @@ h3 {
 span {
   font-size: 15px;
   letter-spacing: 1.5px;
-}
 }
 
 /* global til responsiv */
