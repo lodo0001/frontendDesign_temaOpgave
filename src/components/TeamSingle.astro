@@ -1,56 +1,204 @@
-<section>
-  <div class="team_inner">
-    <article class="team_single">
-      <div>
-        <img
-          src="/src/data/images/sarah.webp"
-          alt="Sarah Jasmine"
-          class="profile_img"
-        />
-      </div>
+---
+const { member } = Astro.props;
+import Instagram from "@icons/instagram.svg";
+import Facebook from "@icons/facebook.svg";
+---
 
-      <div>
-        <h2 class="profile_name">Sarah Jasmine</h2>
-        <span class="profile_title">CEO at Company</span>
-        <p class="description_long">
-          Sarah Jasmine is a dynamic CEO known for her innovative leadership
-          style and commitment to excellence. With a background in technology
-          and business, she has transformed her company into a market leader.
-          Sarah is passionate about fostering a collaborative work environment
-          and empowering her team to achieve their best. Her vision and
-          strategic thinking have driven significant growth and success, making
-          her a respected figure in the industry.
-        </p>
-        <br />
-        <hr />
-        <h3>Past Experience</h3>
-        <p class="past_experience">
-          Sarah Jasmine has a rich background in project management, having
-          successfully led multiple teams through complex initiatives. Her
-          expertise lies in coordinating efforts across departments to ensure
-          timely delivery and high-quality outcomes. Over the years, she has
-          honed her skills in strategic planning and stakeholder engagement,
-          making her a valuable asset in any organization. Sarah's dedication to
-          fostering collaboration and her ability to adapt to changing
-          circumstances have consistently driven her teams to exceed
-          expectations. With a focus on continuous improvement, she embraces
-          challenges as opportunities for growth.
-        </p>
+<section class="team-single-section">
+  <!-- Tilbage knap i single view -->
+  <a class="back-button" href="#" onClick="history.back(); return false;">
+    ← Back to Team
+  </a>
+
+  <div class="team-inner">
+    <!-- Billed af medarbejderen + den grønne figur -->
+    <div class="profile-image-wrap">
+      <figure>
+        <img
+          src={member.img}
+          alt={member.name}
+          class="profile_img"
+          style={`view-transition-name: img-${member.slug};`}
+        />
+      </figure>
+
+      <!-- Ikoner under billedet -->
+      <div class="icons">
+        {
+          member.social_links?.map((link) => (
+            <a
+              href={link.url ?? "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={link.platform ?? "social link"}
+            >
+              {link.icon === "instagram" ? (
+                <Instagram class="icon" width={32} height={32} />
+              ) : (
+                <Facebook class="icon" width={32} height={32} />
+              )}
+            </a>
+          ))
+        }
       </div>
-    </article>
+    </div>
+
+    <!-- Tekstindhold -->
+    <div class="profile-content">
+      <h3 class="profile_name">{member.name}</h3>
+      <span class="profile_title">{member.title}</span>
+      <p class="description_long">{member.description_long}</p>
+      <hr />
+      <h3>Past Experience</h3>
+      <p class="past_experience">{member.past_experience}</p>
+    </div>
   </div>
 </section>
 
 <style>
-  @layer components {
-    .team_single {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8rem;
+  .team-single-section {
+    padding: 100px 0;
+    display: grid;
+    gap: 9rem;
+    position: relative;
+  }
+
+  /* Tilbage knap */
+  .back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    z-index: 10;
+  }
+
+  .back-button:hover {
+    background: oklch(from var(--color-neutrals-900) calc(l + 0.1) c h);
+  }
+
+  .back-button:active {
+    background: oklch(from var(--color-neutrals-900) calc(l + 0.1) c h);
+  }
+
+  .team-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .profile-image-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .profile-image-wrap figure {
+    margin: 0;
+    position: relative;
+  }
+
+  .profile-image-wrap figure::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 190px;
+    height: 120px;
+    background: var(--color-green-400);
+    border-radius: 20px;
+    z-index: -1;
+  }
+
+  .profile-image-wrap img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+
+  /* ikoner under billedet */
+  .profile-image-wrap .icons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+    color: #000;
+  }
+
+  .icon {
+    color: #000;
+  }
+
+  .profile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .profile-content h2,
+  .profile-content h3 {
+    margin: 0;
+  }
+
+  span {
+    margin-top: -1rem;
+  }
+
+  .profile-content hr {
+    border: none;
+    height: 1px;
+    background-color: #d4d4d4;
+    margin: 1.5rem 0;
+  }
+
+  /* Container query */
+  @container team-inner (max-width: 700px) {
+    .team-inner {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  /* prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .team-inner {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      padding-inline: 3rem;
+      padding-top: 3rem;
     }
 
-    .profile_pic {
-      width: 50%;
+    .profile-image-wrap figure::before {
+      top: -20px;
+      left: -20px;
+      width: 100px;
+      height: 90px;
+    }
+
+    .team-single-section {
+      gap: 0;
+    }
+
+    .profile-content {
+      text-align: center;
+      align-items: center;
     }
   }
 </style>
