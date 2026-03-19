@@ -1,0 +1,18 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Employees from "@data/employees.json";
+import TeamSingle from "@components/TeamSingle.astro";
+
+export function getStaticPaths() {
+  return Employees.map((employee) => ({
+    params: { slug: employee.slug },
+    props: { member: employee },
+  }));
+}
+
+const { member } = Astro.props;
+---
+
+<Layout>
+  <TeamSingle member={member} />
+</Layout>

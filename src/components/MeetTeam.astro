@@ -21,13 +21,41 @@ import Instagram from "@icons/instagram.svg";
       {
         team.map((member) => (
           <div class="team_card">
-            <img src={member.img} alt={member.name} />
-            <span class="title_fig">{member.title}</span>
+            <a
+              href={`/${member.slug}`}
+              aria-label={`Read more about ${member.name}`}
+            >
+              <div class="img-wrapper">
+                <img
+                  src={member.img}
+                  alt={member.name}
+                  style={`view-transition-name: img-${member.slug};`}
+                />
+
+                <span class="title_fig">{member.title}</span>
+              </div>
+            </a>
             <h3>{member.name}</h3>
             <p class="description">{member.description}</p>
             <div class="icons">
-              <Instagram width={32} height={32} />
-              <Facebook width={32} height={32} />
+              <a
+                href={
+                  member.social_links?.find((s) => s.platform === "instagram")
+                    ?.url
+                }
+                target="_blank"
+              >
+                <Instagram class="icon_color" width={32} height={32} />
+              </a>
+              <a
+                href={
+                  member.social_links?.find((s) => s.platform === "facebook")
+                    ?.url
+                }
+                target="_blank"
+              >
+                <Facebook class="icon_color" width={32} height={32} />
+              </a>
             </div>
           </div>
         ))
@@ -74,6 +102,14 @@ import Instagram from "@icons/instagram.svg";
       justify-self: end;
     }
 
+    .join_btn:hover {
+      background: oklch(from var(--color-neutrals-900) calc(l + 0.1) c h);
+    }
+
+    .join_btn:active {
+      background: oklch(from var(--color-neutrals-900) calc(l + 0.1) c h);
+    }
+
     /* TEAM GRID */
     .team_grid {
       display: grid;
@@ -96,22 +132,32 @@ import Instagram from "@icons/instagram.svg";
       width: 100%;
       border-radius: 20px;
       cursor: pointer;
+      display: block;
+    }
+
+    .team_card img-wrapper {
+      position: relative;
     }
 
     .team_text {
       text-align: center;
     }
 
+    .img-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
     .title_fig {
       position: absolute;
-      bottom: 170px;
+      bottom: 20px;
       right: 20px;
-      cursor: pointer;
       background-color: var(--color-neutrals-900);
       color: white;
       padding: 0.4rem 0.8rem;
       border-radius: 30px;
       font-size: 0.85rem;
+      cursor: pointer;
     }
 
     .description {
@@ -124,6 +170,10 @@ import Instagram from "@icons/instagram.svg";
       justify-content: center;
       gap: 1rem;
       margin-top: 20px;
+    }
+
+    .icon_color {
+      color: #000;
     }
 
     @media (max-width: 1024px) {
@@ -157,7 +207,7 @@ import Instagram from "@icons/instagram.svg";
       }
 
       .title_fig {
-        bottom: -10px;
+        bottom: 10px;
         right: 15px;
       }
 
