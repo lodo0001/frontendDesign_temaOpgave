@@ -10,7 +10,6 @@ import ArrowLeft from "@icons/arrow-left.svg";
 <main>
   <section class="full">
     <header>
-
       <span class="tools">FINANCIAL TOOLS</span>
       <h2>Financial Projections</h2>
       <p>
@@ -19,7 +18,7 @@ import ArrowLeft from "@icons/arrow-left.svg";
         expenses, and profitability over specific periods.
       </p>
 
-      <div class="financial_text">
+      <!-- <div class="financial_text">
         <span class="tools">FINANCIAL TOOLS</span>
         <h2>Financial Projections</h2>
         <p>
@@ -27,96 +26,95 @@ import ArrowLeft from "@icons/arrow-left.svg";
           company’s performance. They provide insights into potential revenue,
           expenses, and profitability over specific periods.
         </p>
-      </div>
+      </div> -->
       <div class="arrows_buttons">
         <button class="arrowLeft"><ArrowLeft /></button>
         <button class="arrowRight"><ArrowRight /></button>
       </div>
     </header>
 
+    <ul role="list">
+      <li>
+        <Cal class="icons" />
+        <h3>The Balance Sheet</h3>
+        <p>
+          The Balance Sheet is a summary of the assets and liabilities and
+          equity of a business at a specific point of time.
+        </p>
+      </li>
 
-      <ul role="list">
-        <li>
-          <Cal class="icons" />
-          <h3>The Balance Sheet</h3>
-          <p>
-            The Balance Sheet is a summary of the assets and liabilities and
-            equity of a business at a specific point of time.
-          </p>
-        </li>
+      <li>
+        <Card class="icons" />
+        <h3>Income Statement</h3>
+        <p>
+          The Income (Profit and Loss) Statement, commonly referred to as the
+          P&L statement, summarizes the revenue and expenses for a specific time
+          period (one month, one quarter, one year, etc.)
+        </p>
+      </li>
 
-        <li>
-          <Card class="icons" />
-          <h3>Income Statement</h3>
-          <p>
-            The Income (Profit and Loss) Statement, commonly referred to as the
-            P&L statement, summarizes the revenue and expenses for a specific
-            time period (one month, one quarter, one year, etc.)
-          </p>
-        </li>
+      <li>
+        <Law class="icons" />
+        <h3>Financial Plan</h3>
+        <p>
+          Keep your information current and review the documents on a regular
+          basis (monthly or more often if needed). Review them with key
+          individuals within your company.
+        </p>
+      </li>
 
-        <li>
-          <Law class="icons" />
-          <h3>Financial Plan</h3>
-          <p>
-            Keep your information current and review the documents on a regular
-            basis (monthly or more often if needed). Review them with key
-            individuals within your company.
-          </p>
-        </li>
-
-        <li>
-          <Money class="icons" />
-          <h3>Financial Ratios</h3>
-          <p>
-            Ratios are useful when comparing your company with the competition
-            on financial performance and also when benchmarking the performance
-            of your company.
-          </p>
-        </li>
-      </ul>
-    </header>
+      <li>
+        <Money class="icons" />
+        <h3>Financial Ratios</h3>
+        <p>
+          Ratios are useful when comparing your company with the competition on
+          financial performance and also when benchmarking the performance of
+          your company.
+        </p>
+      </li>
+    </ul>
   </section>
+</main>
 
-  <style>
-    :root {
-      --content-width: 50rem;
+<style>
+  :root {
+    --content-width: 50rem;
+  }
+
+  main {
+    padding-block: 4rem;
+    grid-column: full-start / full-end;
+    display: grid;
+    grid-template-columns: subgrid;
+    background-color: var(--color-neutrals-50);
+    padding: 80px 0;
+
+    > * {
+      grid-column: content;
     }
 
-    main {
-      padding-block: 4rem;
-      grid-column: full-start / full-end;
+    .full {
+      grid-column: full;
       display: grid;
-      grid-template-columns: subgrid;
-      background-color: var(--color-neutrals-50);
-      padding: 80px 0;
+      grid-template-columns: inherit;
+      row-gap: 4rem;
 
       > * {
         grid-column: content;
       }
 
-      .full {
+      > ul {
+        scroll-snap-type: x mandatory;
         grid-column: full;
-        display: grid;
-        grid-template-columns: inherit;
-        row-gap: 4rem;
+        padding-inline: max(1rem, 50% - var(--content-width) / 1.45);
+        padding-block-end: 1rem;
 
-        > * {
-          grid-column: content;
-        }
-
-        > ul {
-          scroll-snap-type: x mandatory;
-          grid-column: full;
-          padding-inline: max(1rem, 50% - var(--content-width) / 1.45);
-          padding-block-end: 1rem;
-
-          li {
-            scroll-snap-align: center;
-          }
+        li {
+          scroll-snap-align: center;
         }
       }
     }
+  }
 
   h2 {
     font-size: var(--h2);
@@ -133,6 +131,7 @@ import ArrowLeft from "@icons/arrow-left.svg";
       max-inline-size: 67ch;
       font-family: var(--font-lato);
     }
+  }
 
   .header_text {
     max-width: 600px;
