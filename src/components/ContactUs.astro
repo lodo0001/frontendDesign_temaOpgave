@@ -2,6 +2,10 @@
 import Phone from "@icons/phone.svg";
 import Clock from "@icons/clock.svg";
 import Pin from "@icons/pin.svg";
+
+import contact1 from "../assets/images/contact_1.webp";
+import contact2 from "../assets/images/contact_2.webp";
+import contact3 from "../assets/images/contact_3.webp";
 ---
 
 <section class="contact">
@@ -54,11 +58,11 @@ import Pin from "@icons/pin.svg";
 
     <article class="img_grid">
       <figure>
-        <img src="src/assets/images/contact_1.webp" alt="img_1" />
+        <img src={contact1.src} alt="img_1" />
       </figure>
 
-      <img src="src/assets/images/contact_2.webp" alt="img_2" />
-      <img src="src/assets/images/contact_3.webp" alt="img_3" />
+      <img src={contact2.src} alt="img_2" />
+      <img src={contact3.src} alt="img_3" />
     </article>
   </div>
 </section>
