@@ -24,7 +24,7 @@ import Icon from "@components/helpers/DynamicIcon.astro";
               rel="noopener noreferrer"
               aria-label={link.platform ?? "social link"}
             >
-              <Icon name={link.icon} class="icon_color" />
+              <Icon name={link.icon} id="color_icon" />
             </a>
           ))
         }
@@ -121,6 +121,11 @@ import Icon from "@components/helpers/DynamicIcon.astro";
     color: #000;
   }
 
+  .profile-image-wrap .icons a {
+    color: black;
+    text-decoration: none;
+  }
+
   /* Selve billedet */
   .profile-image-wrap img,
   .profile-image-wrap picture {
@@ -128,11 +133,7 @@ import Icon from "@components/helpers/DynamicIcon.astro";
     max-width: 500px;
     display: block;
     object-fit: cover;
-    border-radius: 0; /* billedet selv skal ikke have radius, wrapperen gør jobbet */
-  }
-
-  .icon_color {
-    color: #000;
+    border-radius: 20px;
   }
 
   .profile-content {

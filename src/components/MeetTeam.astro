@@ -165,6 +165,7 @@ import Icon from "@components/helpers/DynamicIcon.astro";
       max-width: 40ch;
     }
 
+    /* Ikon og styling */
     .icons {
       display: flex;
       flex-direction: row;
@@ -173,8 +174,20 @@ import Icon from "@components/helpers/DynamicIcon.astro";
       margin-top: 20px;
     }
 
-    .icon_color {
-      color: #000;
+    .icons a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      color: var(--color-neutrals-900);
+    }
+
+    .icons :global(svg) {
+      width: 28px;
+      height: 28px;
+      fill: var(--color-neutrals-900);
+      transition:
+        fill 0.2s ease,
+        transform 0.2s ease;
     }
 
     @media (max-width: 1024px) {
