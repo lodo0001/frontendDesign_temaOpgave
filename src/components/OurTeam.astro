@@ -79,6 +79,14 @@ import Sarah from "@data/images/sarah.webp";
       margin-top: 20px;
     }
 
+    .meet_btn:hover {
+      background: oklch(from var(--color-neutrals-900) calc(l + 0.1) c h);
+    }
+
+    .meet_btn:active {
+      background: oklch(from var(--color-neutrals-900) calc(l + 0.2) c h);
+    }
+
     .team_person {
       display: flex;
       gap: 2rem;
@@ -94,38 +102,10 @@ import Sarah from "@data/images/sarah.webp";
     }
 
     @media (max-width: 1024px) {
-      .team_inner {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        margin: 30px;
-      }
-
-      .team_text {
-        text-align: center;
-        max-width: 60ch;
-        margin-inline: auto;
-      }
-
-      .meet_btn {
-        margin-inline: auto;
-        display: block;
-      }
-
-      .team_flex {
-        gap: 2rem;
-      }
-
-      .team_person {
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 1.5rem;
-      }
-
-      .team_person img {
-        width: 120px;
-        flex-shrink: 0;
-        margin-bottom: 0;
-      }
+    }
+    .team_inner {
+      grid-template-columns: 1fr;
+      padding-inline: 9rem;
     }
   }
 </style>

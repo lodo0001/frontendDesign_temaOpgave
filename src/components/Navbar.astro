@@ -82,6 +82,14 @@ import logo from "@assets/images/logo.svg";
       anchor-name: --login-btn;
     }
 
+    .login:hover {
+  background-color: oklch(from var(--color-neutrals-50) calc(l - 0.05) c h);
+}
+
+.login:active {
+  background-color: oklch(from var(--color-neutrals-50) calc(l - 0.1) c h);
+}
+    
     /* CSS TIL POPOVER */
 
     [popover] input {
@@ -141,6 +149,14 @@ import logo from "@assets/images/logo.svg";
         border-style: none;
         margin-top: 0.5rlh;
       }
+
+      #btn_dashboard:hover {
+      background: oklch(from var(--color-yellow-500) calc(l + 0.05) c h);
+    }
+
+    #btn_dashboard:hover {
+      background: oklch(from var(--color-yellow-500) calc(l + 0.05) c h);
+    }
 
       /* popover animation */
       &,

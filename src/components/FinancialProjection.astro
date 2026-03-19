@@ -3,11 +3,14 @@ import Cal from "@icons/cal.svg";
 import Card from "@icons/card.svg";
 import Law from "@icons/law.svg";
 import Money from "@icons/money.svg";
+import ArrowRight from "@icons/arrow--right.svg";
+import ArrowLeft from "@icons/arrow-left.svg";
 ---
 
 <main>
   <section class="full">
     <header>
+
       <span class="tools">FINANCIAL TOOLS</span>
       <h2>Financial Projections</h2>
       <p>
@@ -15,6 +18,22 @@ import Money from "@icons/money.svg";
         company’s performance. They provide insights into potential revenue,
         expenses, and profitability over specific periods.
       </p>
+
+      <div class="financial_text">
+        <span class="tools">FINANCIAL TOOLS</span>
+        <h2>Financial Projections</h2>
+        <p>
+          Financial projections are essential for planning and monitoring a
+          company’s performance. They provide insights into potential revenue,
+          expenses, and profitability over specific periods.
+        </p>
+      </div>
+      <div class="arrows_buttons">
+        <button class="arrowLeft"><ArrowLeft /></button>
+        <button class="arrowRight"><ArrowRight /></button>
+      </div>
+    </header>
+
 
       <ul role="list">
         <li>
@@ -99,37 +118,71 @@ import Money from "@icons/money.svg";
       }
     }
 
-    ul {
-      display: flex;
-      gap: 2rem;
-      overflow-x: auto;
+  h2 {
+    font-size: var(--h2);
+  }
 
-      li {
-        flex-basis: min(400px, 90%);
-        flex-shrink: 0;
-        background: #ebebeb;
-        color: #595566;
-        border-radius: 8px;
-        font-size: 1rem;
-        padding: 2.75rem 2.1875rem;
-        align-self: start;
-        font-family: var(--font-lato);
+  header {
+    color: #595566;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
 
-        h3 {
-          font-weight: 700;
-          font-size: 1.5625rem;
-        }
-      }
+    p {
+      max-inline-size: 67ch;
+      font-family: var(--font-lato);
     }
 
-    h2,
-    h3 {
-      color: #181818;
-      margin-block: 0 0.625rem;
-    }
+  .header_text {
+    max-width: 600px;
+  }
 
-    h2 {
-      font-size: var(--h2);
+  /* Css til icons */
+  .icons {
+    color: black;
+    padding-bottom: 1rem;
+  }
+
+  .arrows_buttons {
+    display: flex;
+    gap: 20px;
+    align-self: end;
+  }
+
+  .arrowRight,
+  .arrowLeft {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    color: var(--color-neutrals-50);
+    background-color: var(--color-neutrals-900);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .arrowRight:hover,
+  .arrowLeft:hover {
+    background: oklch(from var(--color-neutrals-900) calc(l + 0.1) c h);
+  }
+
+  .arrowRight:active,
+  .arrowLeft:active {
+    background: oklch(from var(--color-neutrals-900) calc(l + 0.2) c h);
+  }
+
+  /* Responsiv */
+  @media (max-width: 1024px) {
+    .full > ul {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding-inline: 1rem;
+      overflow-x: visible;
+      justify-items: center;
     }
 
     header {
@@ -187,5 +240,9 @@ import Money from "@icons/money.svg";
         font-size: 0.85rem;
       }
     }
-  </style>
-</main>
+
+    .arrows_buttons {
+      display: none;
+    }
+  }
+</style>

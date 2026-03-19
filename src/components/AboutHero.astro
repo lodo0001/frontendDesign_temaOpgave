@@ -43,5 +43,22 @@
       background: var(--color-yellow-500);
       z-index: -1;
     }
+
+    @media (max-width: 1024px) {
+      .about_text {
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      .highlight::after {
+        content: "";
+        position: absolute;
+        left: 0px;
+        bottom: 2px;
+        width: calc(100% + 900px);
+        height: 5px;
+        background: var(--color-yellow-500);
+      }
+    }
   }
 </style>

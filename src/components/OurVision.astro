@@ -4,50 +4,52 @@ import VisionImg from "@assets/images/vision.png";
 ---
 
 <section class="wrapper">
-  <div class="vision_desc">
-    <div class="text">
-      <span>OUR VISION</span>
-      <h3>Turn your ideas into reality.</h3>
-      <p>
-        Capitalize on low hanging fruit to identify a ballpark value added
-        activity beta test. Override the digital divide with additional from
-        DevOps.
-      </p>
-      <ul>
-        <li>
-          Bring to the table win-win survival strategies to ensure proactive
-          domination. At the end of the day.
-        </li>
-        <li>
+  <article class="vision_inner">
+    <div class="vision_desc">
+      <div class="text">
+        <span>OUR VISION</span>
+        <h3>Turn your ideas into reality.</h3>
+        <p>
           Capitalize on low hanging fruit to identify a ballpark value added
-          activity to beta test override the digital.
-        </li>
-      </ul>
+          activity beta test. Override the digital divide with additional from
+          DevOps.
+        </p>
+        <ul>
+          <li>
+            Bring to the table win-win survival strategies to ensure proactive
+            domination. At the end of the day.
+          </li>
+          <li>
+            Capitalize on low hanging fruit to identify a ballpark value added
+            activity to beta test override the digital.
+          </li>
+        </ul>
+      </div>
+      <figure class="vision_img">
+        <Image src={VisionImg} alt="vison image" />
+      </figure>
     </div>
-    <figure class="vision_img">
-      <Image src={VisionImg} alt="vison image" />
-    </figure>
-  </div>
-  <div class="numbers">
-    <dl>
-      <div>
-        <dt>1128+</dt>
-        <p>Successful Work</p>
-      </div>
-      <div>
-        <dt>908+</dt>
-        <p>Team member</p>
-      </div>
-      <div>
-        <dt>258+</dt>
-        <p>Happy Customers</p>
-      </div>
-      <div>
-        <dt>564+</dt>
-        <p>Creative Idea</p>
-      </div>
-    </dl>
-  </div>
+    <div class="numbers">
+      <dl>
+        <div>
+          <dt>1128+</dt>
+          <p>Successful Work</p>
+        </div>
+        <div>
+          <dt>908+</dt>
+          <p>Team member</p>
+        </div>
+        <div>
+          <dt>258+</dt>
+          <p>Happy Customers</p>
+        </div>
+        <div>
+          <dt>564+</dt>
+          <p>Creative Idea</p>
+        </div>
+      </dl>
+    </div>
+  </article>
 </section>
 
 <style>
@@ -103,74 +105,60 @@ import VisionImg from "@assets/images/vision.png";
     .vision_desc {
       display: grid;
       grid-template-columns: 1fr 1fr;
-
-      .text {
-        grid-column: 1;
-      }
-
-      .vision_img {
-        grid-column: 2;
-      }
+      align-items: center;
+      gap: 3rem;
     }
 
     .vision_img img {
+      width: 100%;
+      height: auto;
       border-radius: 20px;
+      display: block;
     }
 
     figure {
-      margin-inline: auto;
-      max-width: 600px;
-      margin: 1rem;
-      display: block;
       position: relative;
+      margin: 0;
+      max-width: 100%;
 
       &::before {
         content: "";
         position: absolute;
         top: -20px;
-        left: 370px;
+        right: -20px;
         background: var(--color-green-400);
         border-radius: 20px;
-        width: 140px;
-        height: 120px;
+        width: 120px;
+        height: 100px;
         z-index: -1;
       }
     }
+
     @media (max-width: 1024px) {
       .vision_desc {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        justify-items: center;
+        padding-inline: 9rem;
       }
 
-      .vision_desc .text {
-        grid-column: 1;
+      .numbers {
+        margin: 4rem;
+      }
+      .text {
+        text-align: center;
       }
 
-      .vision_desc .vision_img {
-        grid-column: 1;
-      }
-
-      .vision_img img {
+      .vision_img {
         width: 100%;
-        height: auto;
+        max-width: 400px;
+        margin: 0 auto;
       }
 
       figure::before {
-        display: none;
-      }
-
-      .numbers dl {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-      }
-
-      .wrapper {
-        padding: 60px 20px;
-      }
-
-      .text {
-        max-width: 60ch;
+        right: 0;
+        top: -10px;
+        width: 80px;
+        height: 70px;
       }
     }
   }

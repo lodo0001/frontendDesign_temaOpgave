@@ -6,7 +6,10 @@
 body {
   display: grid;
   grid-template-columns:
-    [full-start] minmax(20px, 1fr) [content-start] min(1100px, 100%) [content-end] minmax(20px, 1fr) [full-end];
+    [full-start] minmax(20px, 1fr)
+    [content-start] min(1100px, 100%)
+    [content-end] minmax(20px, 1fr)
+    [full-end];
 }
 
 header,
@@ -82,7 +85,6 @@ span {
   font-size: 15px;
   letter-spacing: 1.5px;
 }
-
 
 /* global til responsiv */
 @media (max-width: 1024px) {

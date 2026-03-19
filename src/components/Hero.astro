@@ -91,6 +91,8 @@ import CEOImage from "@assets/images/ceo.webp";
     .hero-btn {
       display: flex;
       gap: 16px;
+      position: relative;
+      z-index: 2;
     }
 
     .book_btn {
@@ -103,6 +105,14 @@ import CEOImage from "@assets/images/ceo.webp";
       cursor: pointer;
     }
 
+    .book_btn:hover {
+      background: oklch(from var(--color-yellow-500) calc(l + 0.05) c h);
+    }
+
+    .book_btn:active {
+      background: oklch(from var(--color-yellow-500) calc(l + 0.1) c h);
+    }
+
     .learn_btn {
       padding: 12px 22px;
       border-radius: 999px;
@@ -110,6 +120,14 @@ import CEOImage from "@assets/images/ceo.webp";
       text-decoration: none;
       font-weight: 500;
       cursor: pointer;
+    }
+
+    .learn_btn:hover {
+      background-color: rgba(255, 255, 255, 0.1); /* let hvid overlay */
+    }
+
+    .learn_btn:active {
+      background-color: rgba(255, 255, 255, 0.2);
     }
 
     /* css til img */
