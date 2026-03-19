@@ -60,6 +60,43 @@ section {
 
 ## 3. Fremhæv steder, hvor Defensive CSS er tænkt ind.
 
+I vores CSS har vi arbejdet med Defensive CSS ved at tænke over, hvordan layoutet reagerer i forskellige situationer og ikke kun under ideelle forhold. For eksempel bruger vi overflow: hidden i .about, så elementer som den lange highlight-streg ikke skaber uønsket scroll eller bryder layoutet.
+
+```astro
+.about {
+  overflow: hidden;
+}
+```
+
+Vi har også gjort meget ud af at bruge fleksible bredder, hvor tekstsektioner går fra fx 40% til 90% i media queries. Det sikrer, at indholdet forbliver læsbart på mindre skærme. Samtidig bruger vi både width og max-width i fx .case-details, så elementer kan tilpasse sig skærmstørrelsen uden at blive for brede.
+
+```astro
+.about_text {
+  width: 40%;
+}
+
+@media (max-width: 1024px) {
+  .about_text {
+    width: 90%;
+  }
+}
+
+.case-details {
+  width: 90%;
+  max-width: 1000px;
+}
+```
+
+I financialproject-sektionen har vi også tænkt defensivt ved at bruge overflow-x: auto, så indhold kan scrolle i stedet for at bryde layoutet. Samtidig sikrer vi med flex-shrink: 0 og brugen af min() på cards, at de ikke bliver for små og dermed mister deres funktion.
+
+```astro
+ul {
+  overflow-x: auto;
+}
+```
+
+Overordnet har vi arbejdet med fleksible enheder, responsive breakpoints og fallback-løsninger, som gør vores design mere robust og sikrer, at det fungerer på tværs af forskellige skærmstørrelser og indholdstyper.
+
 ---
 
 ## 4. Reflekter over, hvor i løsningen, der er brugt progressive enhancement og gennemgå kort, hvordan det er løst.
