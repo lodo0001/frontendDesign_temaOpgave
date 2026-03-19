@@ -136,5 +136,42 @@ import VisionImg from "@assets/images/vision.png";
         z-index: -1;
       }
     }
+    @media (max-width: 1024px) {
+      .vision_desc {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .vision_desc .text {
+        grid-column: 1;
+      }
+
+      .vision_desc .vision_img {
+        grid-column: 1;
+      }
+
+      .vision_img img {
+        width: 100%;
+        height: auto;
+      }
+
+      figure::before {
+        display: none;
+      }
+
+      .numbers dl {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .wrapper {
+        padding: 60px 20px;
+      }
+
+      .text {
+        max-width: 60ch;
+      }
+    }
   }
 </style>

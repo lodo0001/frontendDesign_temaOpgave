@@ -81,7 +81,7 @@ import Sarah from "@data/images/sarah.webp";
 
     .team_person {
       display: flex;
-      gap: 1rem;
+      gap: 2rem;
       align-items: center;
 
       img {
@@ -90,6 +90,41 @@ import Sarah from "@data/images/sarah.webp";
         height: auto;
         gap: 20px;
         margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .team_inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        margin: 30px;
+      }
+
+      .team_text {
+        text-align: center;
+        max-width: 60ch;
+        margin-inline: auto;
+      }
+
+      .meet_btn {
+        margin-inline: auto;
+        display: block;
+      }
+
+      .team_flex {
+        gap: 2rem;
+      }
+
+      .team_person {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+
+      .team_person img {
+        width: 120px;
+        flex-shrink: 0;
+        margin-bottom: 0;
       }
     }
   }
