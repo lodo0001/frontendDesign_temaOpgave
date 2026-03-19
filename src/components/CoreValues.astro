@@ -1,5 +1,6 @@
 ---
 import corevalues from "@data/coreValues.json";
+import Icon from "@components/helpers/DynamicIcon.astro";
 const { theme } = Astro.props;
 ---
 
@@ -15,13 +16,14 @@ const { theme } = Astro.props;
       </p>
       <button class="core_btn">Get in touch</button>
     </section>
+
     <section class="cards">
       <div class="cards_container">
         {
           corevalues.values.map(({ icon, title, description, link }) => (
             <div class="card" data-theme={theme}>
               <div class="icon-wrapper">
-                <img src={`/src/icons/${icon}.svg`} alt="" />
+                <Icon name={icon} class="icon" />
               </div>
               <h3>{title}</h3>
               <p>{description}</p>
@@ -163,6 +165,10 @@ const { theme } = Astro.props;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
+      }
+
+      .icon {
+        color: aliceblue;
       }
 
       img {

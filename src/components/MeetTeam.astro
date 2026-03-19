@@ -1,7 +1,7 @@
 ---
 import team from "@data/employees.json";
-import Facebook from "@icons/facebook.svg";
-import Instagram from "@icons/instagram.svg";
+import DynamicImage from "@components/helpers/DynamicImage.astro";
+import Icon from "@components/helpers/DynamicIcon.astro";
 ---
 
 <section class="meetourteam_sec">
@@ -11,8 +11,7 @@ import Instagram from "@icons/instagram.svg";
       <p class="content_description">
         Welcome to our amazing team! We are a group of passionate individuals
         dedicated to excellence and innovation. Each member brings unique skills
-        and experiences, working together to achieve our goals. Join us as we
-        embark on exciting projects and create lasting impacts.
+        and experiences, working together to achieve our goals.
       </p>
       <button class="join_btn">Join Our Team</button>
     </section>
@@ -26,12 +25,7 @@ import Instagram from "@icons/instagram.svg";
               aria-label={`Read more about ${member.name}`}
             >
               <div class="img-wrapper">
-                <img
-                  src={member.img}
-                  alt={member.name}
-                  style={`view-transition-name: img-${member.slug};`}
-                />
-
+                <DynamicImage imagePath={member.img} altText={member.name} />
                 <span class="title_fig">{member.title}</span>
               </div>
             </a>
@@ -45,7 +39,7 @@ import Instagram from "@icons/instagram.svg";
                 }
                 target="_blank"
               >
-                <Instagram class="icon_color" width={32} height={32} />
+                <Icon name="instagram" class="icon_color" />
               </a>
               <a
                 href={
@@ -54,7 +48,7 @@ import Instagram from "@icons/instagram.svg";
                 }
                 target="_blank"
               >
-                <Facebook class="icon_color" width={32} height={32} />
+                <Icon name="facebook" class="icon_color" />
               </a>
             </div>
           </div>
@@ -128,11 +122,18 @@ import Instagram from "@icons/instagram.svg";
       position: relative;
     }
 
-    .team_card img {
-      width: 100%;
+    .img-wrapper {
       border-radius: 20px;
-      cursor: pointer;
+      overflow: hidden;
       display: block;
+      cursor: pointer;
+    }
+
+    .img-wrapper img,
+    .img-wrapper picture {
+      width: 100%;
+      display: block;
+      border-radius: 0;
     }
 
     .team_card img-wrapper {

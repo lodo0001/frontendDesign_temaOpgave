@@ -1,28 +1,20 @@
 ---
 const { member } = Astro.props;
-import Instagram from "@icons/instagram.svg";
-import Facebook from "@icons/facebook.svg";
+import DynamicImage from "@components/helpers/DynamicImage.astro";
+import Icon from "@components/helpers/DynamicIcon.astro";
 ---
 
 <section class="team-single-section">
-  <!-- Tilbage knap i single view -->
   <a class="back-button" href="#" onClick="history.back(); return false;">
     ← Back to Team
   </a>
 
   <div class="team-inner">
-    <!-- Billed af medarbejderen + den grønne figur -->
     <div class="profile-image-wrap">
       <figure>
-        <img
-          src={member.img}
-          alt={member.name}
-          class="profile_img"
-          style={`view-transition-name: img-${member.slug};`}
-        />
+        <DynamicImage imagePath={member.img} altText={member.name} />
       </figure>
 
-      <!-- Ikoner under billedet -->
       <div class="icons">
         {
           member.social_links?.map((link) => (
@@ -32,18 +24,13 @@ import Facebook from "@icons/facebook.svg";
               rel="noopener noreferrer"
               aria-label={link.platform ?? "social link"}
             >
-              {link.icon === "instagram" ? (
-                <Instagram class="icon" width={32} height={32} />
-              ) : (
-                <Facebook class="icon" width={32} height={32} />
-              )}
+              <Icon name={link.icon} class="icon_color" />
             </a>
           ))
         }
       </div>
     </div>
 
-    <!-- Tekstindhold -->
     <div class="profile-content">
       <h3 class="profile_name">{member.name}</h3>
       <span class="profile_title">{member.title}</span>
@@ -134,7 +121,17 @@ import Facebook from "@icons/facebook.svg";
     color: #000;
   }
 
-  .icon {
+  /* Selve billedet */
+  .profile-image-wrap img,
+  .profile-image-wrap picture {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    object-fit: cover;
+    border-radius: 0; /* billedet selv skal ikke have radius, wrapperen gør jobbet */
+  }
+
+  .icon_color {
     color: #000;
   }
 

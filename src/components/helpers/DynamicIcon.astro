@@ -12,4 +12,8 @@ try {
 }
 ---
 
-{IconComponent && <IconComponent class={className} />}
+{
+  IconComponent && (
+    <IconComponent class={className} style="fill: currentColor;" />
+  )
+}
